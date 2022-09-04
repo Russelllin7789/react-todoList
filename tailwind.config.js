@@ -8,6 +8,9 @@ module.exports = {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         noto: ["Noto Sans TC"],
       },
+      bgGradientDeg: {
+        175: "175deg",
+      },
     },
   },
   plugins: [],
