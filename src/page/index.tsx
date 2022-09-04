@@ -96,13 +96,41 @@ const TodoList: React.FC = () => {
                 </div>
               )}
               {todoStatus === "unfinished" && (
-                <div>
-                  <div></div>
+                <div className="flex flex-col">
+                  {renderedTodos.map((todo) => {
+                    return (
+                      !todo.isFinished && (
+                        <div key={todo.id}>
+                          <ListItem
+                            listItem={todo}
+                            setCheckboxChecked={(todo) =>
+                              handleCheckboxChecked(todo)
+                            }
+                            setDeleted={(id) => handleTodoDeleted(id)}
+                          />
+                        </div>
+                      )
+                    );
+                  })}
                 </div>
               )}
               {todoStatus === "finished" && (
-                <div>
-                  <div></div>
+                <div className="flex flex-col">
+                  {renderedTodos.map((todo) => {
+                    return (
+                      todo.isFinished && (
+                        <div key={todo.id}>
+                          <ListItem
+                            listItem={todo}
+                            setCheckboxChecked={(todo) =>
+                              handleCheckboxChecked(todo)
+                            }
+                            setDeleted={(id) => handleTodoDeleted(id)}
+                          />
+                        </div>
+                      )
+                    );
+                  })}
                 </div>
               )}
             </Box>
